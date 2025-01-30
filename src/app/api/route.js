@@ -5,12 +5,12 @@ export async function POST(request) {
   const data = await request.json();
   console.log("Data received:", data.message);
   const model = genAi.getGenerativeModel({ model: "gemini-pro" });
-  const prompt = `generate article based on the following topic  ${data.message} and should be less than 300 words`;
+  const prompt = `find love and connection from users input thats is  ${data.message} and shouldsimple dont be repetitive of users input and organise response`;
 
   const result = await model.generateContent(prompt);
   const response = result.response;
   const text = response.text();
-  console.log(text,"uiuiuiouiiuo");
+
 
   return Response.json(text);
 }

@@ -4,16 +4,18 @@ import { useAuthContext } from "../_auth/context";
 import { useRouter } from "next/navigation";
 import { deleteFilteredDocs, initSatellite, listDocs, setDoc, signOut } from "@junobuild/core";
 import { nanoid } from "nanoid";
+import ReactMarkdown from 'react-markdown';
 const DarLoveAIMain = () => {
   const { user } = useAuthContext();
-  const[history,setHistory]=useState([]);
-  const[response,setResponse]=useState("");
-  const [search, setSearch] = useState("");
   const router = useRouter();
-  const myId = nanoid();
   if (!user) {
     router.push("/");
   }
+  const[history,setHistory]=useState([]);
+  const[response,setResponse]=useState("");
+  const [search, setSearch] = useState("");
+  const[isLoading,setLoding]=useState(false);
+  const myId = nanoid();
   useEffect(() => {
     (async () =>
       await initSatellite({
@@ -95,6 +97,8 @@ const handleClearHistory = async () => {
   setHistory(items);
   setResponse("")
 };
+
+
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
@@ -140,7 +144,7 @@ const handleClearHistory = async () => {
       <div className="flex-1  bg-gradient-to-r from-pink-200 via-red-200 to-pink-200">
         <div className="p-6  bg-white shadow-2xl rounded-2xl text-center mb-6">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Welcome Back to Dar Love AI
+            Welcome Back to Dr Love AI
           </h1>
           <p className="text-lg text-gray-600 mb-4">
             Find your connections and revisit past interactions.
