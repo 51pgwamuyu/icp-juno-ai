@@ -1,4 +1,4 @@
-This is a ai project build using icp + nextjs +juno which is a frontend framework of icp project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a ai project build using icp + nextjs +juno which is a frontend framework of icp 
 
 ## Getting Started
 
